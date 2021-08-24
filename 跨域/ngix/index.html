@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+         let xhr = new XMLHttpRequest;
+        xhr.open('GET','http://localhost/a.json',true);
+      
+        xhr.onreadystatechange = function(params){
+            if(xhr.readyState === 4){
+                if(xhr.status >= 200 && xhr.status < 300 || xhr.status === 304){
+                    console.log(xhr.response)
+
+                    // 获取到服务端给客户端传输的数据时，报错 Refused to get unsafe header "name"
+                    
+                    console.log(xhr.getResponseHeader('name'))
+                }
+            }
+        }
+        xhr.send()
+    </script>
+    
+</body>
+</html>

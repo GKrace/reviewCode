@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+    // 高级api 不兼容  有一个库都兼容 socket.io (一般用的都是)
+
+   var ws = new WebSocket('ws://localhost:3999');
+    // 链接成功触发事件
+    ws.onopen = function(){
+        ws.send('布丁')
+    }
+    ws.onmessage = function(e){
+        console.log(e.data)
+    }
+    </script>
+</body>
+</html>
